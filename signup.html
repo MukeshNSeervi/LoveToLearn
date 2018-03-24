@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sign Up</title>
+        <link rel="icon" type="image/png" href="images/fav.png" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="signup.css">
+        <script src="min.js"></script>
+    </head>
+    <body>
+        <script>
+            $(document).ready(function () {
+                $("#Cpassword").keyup(validate);
+                $("#Password").keyup(validate);
+            });
+            function validate() {
+                var password1 = $("#Password").val();
+                var password2 = $("#Cpassword").val();
+                if (password1 == password2) {
+                    $('#Button').prop('disabled', false);
+                    $("#span").text("");
+                } else {
+                    $('#Button').prop('disabled', true);
+                    $("#span").text("Password's Donot Match....!!");
+                }           
+            }
+        </script>
+        <div class="container">
+            <div class="backbox">
+                <div class="loginMsg">
+                    <div class="textcontent">
+                        <p class="title">Already Have an Account??</p>
+                        <p>Login To Continue</p>
+                        <a href="login.html"><button id="switch1" style="cursor: pointer">Back To Login</button></a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- backbox -->
+            <div class="frontbox">
+                <div class="login">
+                    <h2>Sign Up</h2>
+                    <form method="POST" action="signup.jsp">
+                        <div class="inputbox">
+                            <input type="text"  name="Name" placeholder="  Login Name" required="required" />
+                            <input type="Number" Name ="Age" placeholder="  Age"/>
+                            <select name="Gender">
+                                <option value="MALE">MALE</option>
+                                <option value="FEMALE">FEMALE</option>
+                                <option value="OTHERS">OTHERS</option>
+                            </select>
+                            <select name="Occupation">
+                                <option value="STUDENT">STUDENT</option>
+                                <option value="BUSINESSMAN">BUSINESSMAN</option>
+                                <option value="DOCTOR">DOCTOR</option>
+                                <option value="ENGINEER">ENGINEER</option>
+                                <option value="Teacher">TEACHER</option>
+                                <option value="OTHERS">OTHERS</option>
+                            </select>
+                            <p>
+                            </p>
+                            <input type="text" name="Email" placeholder="  EMAIL" required="required" />
+                            <input type="password" name="Password" placeholder="  PASSWORD" required="required" id="Password"/>
+                            <input type="password" name="Confirm_Password" placeholder=" CONFIRM PASSWORD" required="required" id="Cpassword"/>
+                            <div id = "span" style="color : red"></div>
+                            <br />
+                        </div>
+                        <button value="submit" id="Button">Sign Up</button>
+                </form>
+            </div>
+        </div>
+        <!-- frontbox -->
+    </div>
+</body>
+</html>
+
+
